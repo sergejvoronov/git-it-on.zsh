@@ -59,7 +59,10 @@ git_open_file() {
   fi
 
   if [ "$#" -eq 2 ]; then branch="$2"; fi
-  if [ -d $1 ]; then
+  if [[ "$url" == *"bitbucket"* ]]; then
+    local cdtohere=$1
+    local zone='src'
+  elif [ -d $1 ]; then
     local cdtohere=$1
     local zone='tree'
   else
